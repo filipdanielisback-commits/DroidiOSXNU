@@ -8,7 +8,7 @@
 - Exact model reported by owner: `XT2135-2`
 - Common platform codename: `hanoip` (also shared in public device trees with Moto G40 Fusion)
 - Owner-confirmed RAM: 6 GB
-- Storage capacity: not yet confirmed
+- Owner-reported storage usage: 124 GB used; total capacity not yet confirmed
 - Owner-reported software build: `S2RIS32.32-20-9-9-2-3`
 - Firmware package family identified in public references: `XT2135-2_HANOIP_RETEU_12_...` (European retail channel; Android 12)
 - SoC: Qualcomm Snapdragon 732G / SM7150 family
@@ -27,7 +27,7 @@ Public Android device trees identify `hanoip` as the Moto G40 Fusion/Moto G60 pl
 | CPU | Octa-core Kryo 470 family | Cross-check exact device variant |
 | GPU | Adreno 618 | Public platform specification; driver feasibility unknown |
 | Display | 6.8-inch IPS LCD, 1080 × 2460, up to 120 Hz reported | Panel/controller and display pipeline not identified |
-| Memory / storage | 6 GB RAM confirmed by owner; storage capacity not yet confirmed | RAM is device-specific; determine storage from Settings if desired |
+| Memory / storage | 6 GB RAM confirmed by owner; 124 GB storage currently used; total capacity unknown | Used space is not the same as total capacity; confirm total in Settings |
 | Battery | 6,000 mAh reported | Not relevant to kernel compatibility by itself |
 | Wi-Fi / Bluetooth | Dual-band Wi-Fi and Bluetooth 5.0 reported | Chipset, firmware interface, and driver support unknown |
 | Audio | Speaker, earpiece, microphones, 3.5 mm audio reported | Codec, routing, and amplifier details unknown |
@@ -53,7 +53,7 @@ These are research references only. Review each repository's license and history
 ## Next research tasks
 
 - [x] Record exact model number, RAM configuration, and software build as supplied by the device owner.
-- [ ] Confirm storage capacity and region/channel from the device's About phone screen.
+- [ ] Confirm total storage capacity and region/channel from the device's About phone or Storage screen.
 - [ ] Verify `hanoip` identity against device-specific public sources.
 - [ ] Inspect public device-tree configuration and record component names with source links.
 - [ ] Identify the exact display panel and touchscreen controller from documented sources.
