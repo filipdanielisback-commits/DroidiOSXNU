@@ -2,6 +2,14 @@
 
 Start with host-side checks that do not require a phone.
 
+Run the synthetic Device Tree parser tests from the repository root:
+
+```sh
+python3 -m unittest discover -s tests -v
+```
+
+The DTS fixtures in these tests are minimal, synthetic examples; they are not copied from vendor source and do not assert Moto G60 hardware facts.
+
 Future test reports should record:
 
 - test name and purpose;
