@@ -24,11 +24,30 @@ class DtsInventoryTests(unittest.TestCase):
         rows = parse_dts(source, "fixture.dts")
         self.assertEqual(len(rows), 2)
         uart = next(row for row in rows if row["path"].endswith("uart@1000"))
-        self.assertEqual(uart["compatible"], '"acme,uart-v2" , "acme,uart"')
+        self.assertEqual(uart["compatible"], '"acme,uart-v2", "acme,uart"')
         self.assertEqual(uart["reg"], "<0x1000 0x100>")
         self.assertEqual(uart["status"], '"okay"')
         disabled = next(row for row in rows if row["path"].endswith("disabled-device@2000"))
         self.assertEqual(disabled["status"], '"disabled"')
+
+    def test_parent_properties_after_child_are_not_lost(self):
+        source = '''
+/ {
+    parent {
+        child {
+            compatible = "example,child";
+        };
+        compatible = "example,parent";
+        status = "okay";
+    };
+};
+'''
+        rows = parse_dts(source)
+        parent = next(row for row in rows if row["path"] == "/parent")
+        child = next(row for row in rows if row["path"] == "/parent/child")
+        self.assertEqual(parent["compatible"], '"example,parent"')
+        self.assertEqual(parent["status"], '"okay"')
+        self.assertEqual(child["compatible"], '"example,child"')
 
     def test_ignores_comments_and_braces_inside_strings(self):
         source = '''
@@ -50,7 +69,7 @@ class DtsInventoryTests(unittest.TestCase):
         self.assertEqual(rows[0]["status"], '"okay"')
 
     def test_nodes_without_tracked_properties_are_omitted(self):
-        self.assertEqual(parse_dts("/ { chosen { bootargs = \"quiet\"; }; };"), [])
+        self.assertEqual(parse_dts('/ { chosen { bootargs = "quiet"; }; };'), [])
 
 
 if __name__ == "__main__":
