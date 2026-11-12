@@ -34,7 +34,7 @@ Public Android device trees identify `hanoip` as a shared Moto G40 Fusion/Moto G
 | Sensors | Semtech SX933x node in matching DTS | Software configuration lead; exact role/part needs confirmation |
 | Cameras | Matching DTS describes rear main, rear wide, rear depth and front camera paths | Exact sensor population/revision needs confirmation |
 | Audio | Qualcomm Bolero/MI2S and audio-DSP integration references | Codec and full audio routing need confirmation |
-| Wi-Fi / Bluetooth | Not conclusively identified in the exact-build DTS files reviewed so far | Chipset, firmware interface, and driver support unknown |
+| Wi-Fi / Bluetooth | Community Android tree points to Qualcomm CLD3/WCNSS software integration, but contains mixed QCA6390/QCA6490/WCNSS references | Physical combo-chip identity remains unknown; see [wireless research audit](../../docs/MOTO_G60_WIRELESS_RESEARCH.md) |
 | Storage controller | UFS controller/PHY references in matching platform DTS | No XNU storage driver |
 | Boot firmware | Exact XT2135-2 Android 12 software build recorded above | Boot-chain assumptions not yet inventoried |
 
@@ -49,8 +49,9 @@ Specifications above distinguish exact-build source declarations from general pr
 - [Android device tree: motorola-sm6150-devs/android_device_motorola_hanoip](https://github.com/motorola-sm6150-devs/android_device_motorola_hanoip)
 - [Moto Hanoip community source organization](https://github.com/moto-hanoip/)
 - [Secondary specification reference](https://www.notebookcheck.net/Motorola-Moto-G60.543352.0.html)
-- [DroidiOSXNU public device-tree audit](../docs/MOTO_G60_DEVICE_TREE_AUDIT.md)
-- [DroidiOSXNU exact-build kernel-source audit](../docs/MOTO_G60_KERNEL_SOURCE_AUDIT.md)
+- [DroidiOSXNU public device-tree audit](../../docs/MOTO_G60_DEVICE_TREE_AUDIT.md)
+- [DroidiOSXNU exact-build kernel-source audit](../../docs/MOTO_G60_KERNEL_SOURCE_AUDIT.md)
+- [DroidiOSXNU WLAN/Bluetooth research audit](../../docs/MOTO_G60_WIRELESS_RESEARCH.md)
 
 Review applicable licenses before any code reuse. The presence of Android/Linux device support does not establish XNU compatibility. DroidiOSXNU records findings and links only; it does not copy Motorola kernel code or proprietary vendor blobs.
 
@@ -61,9 +62,10 @@ Review applicable licenses before any code reuse. The presence of Android/Linux 
 - [x] Review a public `hanoip` Android device tree.
 - [x] Find and inspect the Motorola kernel source release matching the owner's exact software build.
 - [x] Record exact-build display, touchscreen, NFC, fingerprint, sensor, camera-topology, audio and storage-controller source clues.
+- [x] Record preliminary WLAN/Bluetooth software-stack clues and explicitly preserve the unresolved chip identity.
 - [ ] Determine which `hanoip` board ID corresponds to the owner's physical XT2135-2.
 - [ ] Resolve the touchscreen NVT-versus-Ilitek discrepancy between community and exact-build source trees.
-- [ ] Identify WLAN/Bluetooth hardware and matching driver bindings.
+- [ ] Identify WLAN/Bluetooth hardware from an authoritative exact-model source.
 - [ ] Build a host-side XNU platform bring-up and driver-gap plan.
 
 ## Safety and scope
