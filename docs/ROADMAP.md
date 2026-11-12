@@ -28,7 +28,7 @@ All milestones are goals. None should be interpreted as completed until evidence
 - [ ] Create reproducible source-fetch and integrity-check scripts.
 - [ ] Establish tests that run without a phone.
 - [ ] Document known gaps between public XNU source and iOS userspace.
-- [ ] Build host-side source parsers and tests for the public device-tree evidence.
+- [x] Add a best-effort host-side DTS/DTSI inventory parser and synthetic unit tests; semantic parsing and real-source validation remain future work.
 
 ## Milestone 3 — platform feasibility
 
