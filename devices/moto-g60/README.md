@@ -10,62 +10,64 @@
 - Owner-confirmed RAM: 6 GB
 - Owner-confirmed internal storage: 128 GB total, with 124 GB currently used
 - Owner-reported software build: `S2RIS32.32-20-9-9-2-3`
-- Firmware package family identified in public references: `XT2135-2_HANOIP_RETEU_12_...` (European retail channel; Android 12)
-- SoC: Qualcomm Snapdragon 732G / SM7150 family
-- GPU: Qualcomm Adreno 618
-- Board revision: not yet recorded
+- Matching Motorola Linux kernel release: `MMI-S2RIS32.32-20-9-9-2-3`
+- SoC platform family in the matching source: Qualcomm SDM Magpie / SM6150
+- GPU: Qualcomm Adreno 618 (reported in public Android device configuration)
+- Board revision: not yet independently identified
 
-The exact model, memory configuration, storage capacity/usage, and build string were supplied by the device owner. Motorola's EU declaration identifies XT2135-2 as the Moto G60 model, and Motorola's product announcement lists 128 GB built-in storage. A Motorola kernel-source request associates the reported build with the XT2135-2 European hanoip firmware package. This helps identify the software baseline, but does not by itself verify every hardware component or guarantee that a particular kernel source snapshot exactly matches the installed binary.
+The exact model, memory configuration, storage capacity/usage, and build string were supplied by the device owner. Motorola's kernel-source issue #574 names the exact XT2135-2 European firmware package and links to the matching kernel source release. This is a strong source baseline for the reported software build, but does not by itself prove the physical board ID or every replaceable component.
 
-Public Android device trees identify `hanoip` as the Moto G40 Fusion/Moto G60 platform. The Moto G40 Fusion and Moto G60 have regional hardware differences, so do not assume every listed component or configuration is identical.
+Public Android device trees identify `hanoip` as a shared Moto G40 Fusion/Moto G60 platform. The Moto G40 Fusion and Moto G60 have regional hardware differences, so do not assume every listed component or configuration is identical.
 
 ## Preliminary hardware inventory
 
 | Subsystem | Research finding | Confidence / next check |
 | --- | --- | --- |
-| SoC | Snapdragon 732G (SM7150 family) | Public platform lead; verify against exact board sources |
-| CPU | Octa-core Kryo 470 family | Cross-check exact device variant |
-| GPU | Adreno 618 | Public platform specification; driver feasibility unknown |
-| Display | 6.8-inch IPS LCD, 1080 × 2460, up to 120 Hz reported | Panel/controller and display pipeline not identified |
-| Memory / storage | 6 GB RAM confirmed by owner; 128 GB internal storage confirmed by owner; 124 GB currently used | Device-specific configuration confirmed; free space changes over time |
-| Battery | 6,000 mAh reported | Not relevant to kernel compatibility by itself |
-| Wi-Fi / Bluetooth | Dual-band Wi-Fi and Bluetooth 5.0 reported | Chipset, firmware interface, and driver support unknown |
-| Audio | Speaker, earpiece, microphones, 3.5 mm audio reported | Codec, routing, and amplifier details unknown |
-| Cameras | Regional variants differ; G60 commonly reported with 108 MP main camera, G40 Fusion with 64 MP | Do not assume camera modules are interchangeable |
-| Touchscreen | Capacitive touch | Controller and Linux driver not yet identified |
-| Boot firmware | Exact XT2135-2 Android 12 software build recorded above | Boot-chain details not yet inventoried |
-| Sensors / power | Several standard phone sensors reported | Exact sensor parts and power-management devices unknown |
+| SoC | Qualcomm SDM Magpie / SM6150 platform family in matching kernel DTS | Exact-build source evidence; commercial chipset branding is a separate specification claim |
+| CPU | ARM64 platform; octa-core Kryo 470 family reported | Confirm exact CPU topology from matching DTS/source |
+| GPU | Adreno 618 reported in Android device configuration | Driver feasibility unknown |
+| Display | Tianma ILI7807S 678, 1080 × 2460 panel definition; 60/120 Hz modes in matching DTS | Exact-build panel software definition; verify physical panel revision |
+| Touchscreen | SPI node compatible with `tchip,ilitek` in matching DTS | Strong software-interface lead; retail controller revision unknown |
+| Memory / storage | 6 GB RAM and 128 GB internal storage confirmed by owner; 124 GB currently used | Device-specific configuration confirmed |
+| NFC | `qcom,nq-nci` I2C node in matching DTS | Software integration evidence; exact module not confirmed |
+| Fingerprint | FPC1020-compatible node in matching DTS | Software configuration lead; verify fitted sensor |
+| Sensors | Semtech SX933x node in matching DTS | Software configuration lead; exact role/part needs confirmation |
+| Cameras | Matching DTS describes rear main, rear wide, rear depth and front camera paths | Exact sensor population/revision needs confirmation |
+| Audio | Qualcomm Bolero/MI2S and audio-DSP integration references | Codec and full audio routing need confirmation |
+| Wi-Fi / Bluetooth | Not conclusively identified in the exact-build DTS files reviewed so far | Chipset, firmware interface, and driver support unknown |
+| Storage controller | UFS controller/PHY references in matching platform DTS | No XNU storage driver |
+| Boot firmware | Exact XT2135-2 Android 12 software build recorded above | Boot-chain assumptions not yet inventoried |
 
-Specifications above are preliminary research leads, not a validated board-level bill of materials. Secondary specification sites can contain errors or combine regional variants.
+Specifications above distinguish exact-build source declarations from general product specifications. A device-tree node is evidence of a configured software interface, not absolute proof of the exact physical component fitted in every production unit.
 
 ## Public source leads
 
 - [Motorola EU declaration of conformity identifying XT2135-2 as Moto G60](https://en-us.support.motorola.com/ci/fattach/get/79315385/1664922506/redirect/1/filename/XT2135-2_Moto%2BG60%2BVision%2BMC38C%2BRED%2BDoC.pdf)
 - [Motorola Moto G60 product announcement (128 GB built-in storage)](https://motorolanews.com/ultra-high-res-photos-meet-ultra-fast-performance-introducing-moto-g60/)
+- [Motorola kernel source release: exact build](https://github.com/MotorolaMobilityLLC/kernel-msm/releases/tag/MMI-S2RIS32.32-20-9-9-2-3)
+- [Motorola source publication record, issue #574](https://github.com/MotorolaMobilityLLC/kernel-msm/issues/574)
 - [Android device tree: motorola-sm6150-devs/android_device_motorola_hanoip](https://github.com/motorola-sm6150-devs/android_device_motorola_hanoip)
-- [Android device tree: device_motorola_hanoip](https://github.com/motorola-sm6150-devs/device_motorola_hanoip)
 - [Moto Hanoip community source organization](https://github.com/moto-hanoip/)
-- [Motorola kernel source release discussion for hanoip](https://github.com/MotorolaMobilityLLC/kernel-msm/issues/415)
-- [Motorola kernel source request for the exact XT2135-2 build S2RIS32.32-20-9-9-2-3](https://github.com/MotorolaMobilityLLC/kernel-msm/issues/574)
 - [Secondary specification reference](https://www.notebookcheck.net/Motorola-Moto-G60.543352.0.html)
 - [DroidiOSXNU public device-tree audit](../docs/MOTO_G60_DEVICE_TREE_AUDIT.md)
+- [DroidiOSXNU exact-build kernel-source audit](../docs/MOTO_G60_KERNEL_SOURCE_AUDIT.md)
 
-These are research references only. Review each repository's license and history before using any code. The presence of Android/Linux device support does not establish XNU compatibility.
+Review applicable licenses before any code reuse. The presence of Android/Linux device support does not establish XNU compatibility. DroidiOSXNU records findings and links only; it does not copy Motorola kernel code or proprietary vendor blobs.
 
 ## Next research tasks
 
 - [x] Record exact model number, RAM, total storage, reported used storage, and software build as supplied by the device owner.
 - [x] Confirm 128 GB storage capacity.
-- [x] Review a public `hanoip` device tree's board configuration and product configuration; see [device-tree audit](../docs/MOTO_G60_DEVICE_TREE_AUDIT.md).
-- [ ] Verify exact `hanoip` identity and relevant configuration against XT2135-2-specific sources.
-- [ ] Identify the exact display panel and touchscreen controller from documented sources.
-- [ ] Identify Wi-Fi/Bluetooth, audio codec, camera, and sensor components.
-- [ ] Locate and review the matching vendor kernel source release and its license.
-- [ ] Build a host-side compatibility assessment; do not attempt a device boot yet.
-- [ ] Record each finding as verified, tentative, or unknown.
+- [x] Review a public `hanoip` Android device tree.
+- [x] Find and inspect the Motorola kernel source release matching the owner's exact software build.
+- [x] Record exact-build display, touchscreen, NFC, fingerprint, sensor, camera-topology, audio and storage-controller source clues.
+- [ ] Determine which `hanoip` board ID corresponds to the owner's physical XT2135-2.
+- [ ] Resolve the touchscreen NVT-versus-Ilitek discrepancy between community and exact-build source trees.
+- [ ] Identify WLAN/Bluetooth hardware and matching driver bindings.
+- [ ] Build a host-side XNU platform bring-up and driver-gap plan.
 
 ## Safety and scope
 
-Do not flash experimental images or modify boot partitions as part of this research phase. Keep the phone's normal operating system intact. Do not publish serial numbers, IMEI values, account details, private logs, or proprietary firmware.
+This is static source research. Do not flash experimental images or modify boot partitions. Keep the phone's normal operating system intact. Do not publish serial numbers, IMEI values, account details, private logs, or proprietary firmware.
 
 A working Android kernel/device tree is useful evidence about the hardware, but it is not a ready-made XNU port.
