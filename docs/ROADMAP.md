@@ -11,11 +11,15 @@ All milestones are goals. None should be interpreted as completed until evidence
 
 ## Milestone 1 — Moto G60 inventory
 
-- [ ] Record exact model/region variant and product identifiers.
-- [ ] Verify SoC, boot architecture, memory, display, touch controller, storage, Wi-Fi, Bluetooth, audio, cameras, and sensors from reliable sources.
+- [x] Record exact model/region variant and owner-supplied device configuration.
+- [x] Locate the Motorola kernel source release matching the reported software build.
+- [x] Review the matching source's major device-tree peripheral declarations.
+- [x] Publish preliminary WLAN/Bluetooth software-stack clues while keeping physical chip identity unresolved.
+- [x] Publish an initial hardware-to-XNU driver gap matrix: [Moto G60 XNU driver gap matrix](MOTO_G60_XNU_DRIVER_GAP_MATRIX.md).
+- [ ] Verify remaining SoC, boot architecture, memory map, interrupt, timer, storage, Wi-Fi, Bluetooth, audio, GPU, camera, and sensor details from authoritative sources.
+- [ ] Resolve the board-ID and touchscreen-controller discrepancies.
 - [ ] Map each component to available public documentation and open-source drivers.
 - [ ] Record boot-chain constraints and supported development interfaces.
-- [ ] Publish an evidence-based compatibility matrix.
 
 ## Milestone 2 — host-side research
 
@@ -24,6 +28,7 @@ All milestones are goals. None should be interpreted as completed until evidence
 - [ ] Create reproducible source-fetch and integrity-check scripts.
 - [ ] Establish tests that run without a phone.
 - [ ] Document known gaps between public XNU source and iOS userspace.
+- [ ] Build host-side source parsers and tests for the public device-tree evidence.
 
 ## Milestone 3 — platform feasibility
 
