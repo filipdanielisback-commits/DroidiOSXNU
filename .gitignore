@@ -1,0 +1,41 @@
+# Build outputs
+/build/
+/out/
+/dist/
+/target/
+/*.img
+/*.bin
+/*.elf
+/*.dtb
+/*.dtbo
+
+# Local device data and firmware (never commit)
+fw-*/
+/firmware/
+/ipsw/*.ipsw
+ipsw-cache/
+/extracted-firmware/
+/device-dumps/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.mobileprovision
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
