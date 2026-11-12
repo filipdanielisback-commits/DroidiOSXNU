@@ -48,6 +48,7 @@ Specifications above are preliminary research leads, not a validated board-level
 - [Motorola kernel source release discussion for hanoip](https://github.com/MotorolaMobilityLLC/kernel-msm/issues/415)
 - [Motorola kernel source request for the exact XT2135-2 build S2RIS32.32-20-9-9-2-3](https://github.com/MotorolaMobilityLLC/kernel-msm/issues/574)
 - [Secondary specification reference](https://www.notebookcheck.net/Motorola-Moto-G60.543352.0.html)
+- [DroidiOSXNU public device-tree audit](../docs/MOTO_G60_DEVICE_TREE_AUDIT.md)
 
 These are research references only. Review each repository's license and history before using any code. The presence of Android/Linux device support does not establish XNU compatibility.
 
@@ -55,8 +56,8 @@ These are research references only. Review each repository's license and history
 
 - [x] Record exact model number, RAM, total storage, reported used storage, and software build as supplied by the device owner.
 - [x] Confirm 128 GB storage capacity.
-- [ ] Verify `hanoip` identity against device-specific public sources.
-- [ ] Inspect public device-tree configuration and record component names with source links.
+- [x] Review a public `hanoip` device tree's board configuration and product configuration; see [device-tree audit](../docs/MOTO_G60_DEVICE_TREE_AUDIT.md).
+- [ ] Verify exact `hanoip` identity and relevant configuration against XT2135-2-specific sources.
 - [ ] Identify the exact display panel and touchscreen controller from documented sources.
 - [ ] Identify Wi-Fi/Bluetooth, audio codec, camera, and sensor components.
 - [ ] Locate and review the matching vendor kernel source release and its license.
