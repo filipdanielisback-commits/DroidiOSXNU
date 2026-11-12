@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Best-effort, read-only inventory of selected properties in DTS/DTSI text.
 
-This is intentionally not a complete Device Tree compiler. It does not resolve
-includes, labels, overlays, phandles, macros, or inherited bus address cells.
-Use dtc for syntax validation and a full DT parser for semantic analysis.
+This is not a complete Device Tree compiler. It does not resolve includes,
+labels, overlays, phandles, macros, or inherited bus address cells. Use dtc
+for syntax validation and a full Device Tree parser for semantic analysis.
 """
 from __future__ import annotations
 
@@ -17,7 +17,6 @@ from typing import Iterable
 
 TRACKED = ("compatible", "reg", "status")
 TOKEN_RE = re.compile(r'"(?:\\.|[^"\\])*"|[{};=]|[^\s{};=]+')
-NODE_RE = re.compile(r"^(?:[A-Za-z_][\w,.-]*@?[\w,.-]*|/|&[A-Za-z_][\w]*)$")
 
 
 def strip_comments(source: str) -> str:
@@ -62,24 +61,27 @@ def strip_comments(source: str) -> str:
 
 
 def _clean_value(tokens: list[str]) -> str:
-    return " ".join(tokens).strip()
+    """Join tokens without adding whitespace around comma separators."""
+    value = " ".join(tokens).strip()
+    return re.sub(r"\s*,\s*", ", ", value)
 
 
 def parse_dts(source: str, source_name: str = "<memory>") -> list[dict[str, object]]:
-    """Extract node paths and compatible/reg/status properties."""
+    """Extract node paths and compatible/reg/status properties.
+
+    A node stack is used so properties following a nested child still attach
+    to their correct parent node.
+    """
     text = strip_comments(source)
     tokens = [(m.group(0), text.count("\n", 0, m.start()) + 1) for m in TOKEN_RE.finditer(text)]
-    stack: list[str] = []
+    stack: list[dict[str, object]] = []
     pending: list[tuple[str, int]] = []
     records: list[dict[str, object]] = []
-    current: dict[str, object] | None = None
 
     for token, line in tokens:
         if token == "{":
             header = [t for t, _ in pending]
             pending.clear()
-            # The final header token is the node name; preceding tokens may
-            # contain a label (label:) or directives.
             name = header[-1] if header else "<unknown>"
             if name == ":" and len(header) > 1:
                 name = header[-2]
@@ -88,10 +90,9 @@ def parse_dts(source: str, source_name: str = "<memory>") -> list[dict[str, obje
             elif name.startswith("&"):
                 path = "/" + name
             else:
-                parent = stack[-1] if stack else ""
-                path = (parent.rstrip("/") + "/" + name) if parent else "/" + name
-            stack.append(path)
-            current = {
+                parent_path = str(stack[-1]["path"]) if stack else ""
+                path = (parent_path.rstrip("/") + "/" + name) if parent_path else "/" + name
+            node: dict[str, object] = {
                 "source": source_name,
                 "line": line,
                 "path": path,
@@ -99,26 +100,25 @@ def parse_dts(source: str, source_name: str = "<memory>") -> list[dict[str, obje
                 "reg": None,
                 "status": None,
             }
-            records.append(current)
+            records.append(node)
+            stack.append(node)
         elif token == ";":
-            if current is not None and pending:
+            if stack and pending:
                 parts = [t for t, _ in pending]
                 if "=" in parts:
                     eq = parts.index("=")
                     key = parts[eq - 1] if eq else ""
                     if key in TRACKED:
-                        current[key] = _clean_value(parts[eq + 1 :])
+                        stack[-1][key] = _clean_value(parts[eq + 1 :])
             pending.clear()
         elif token == "}":
             pending.clear()
             if stack:
                 stack.pop()
-            current = None
         else:
             pending.append((token, line))
 
-    # Keep only nodes that contribute useful hardware inventory evidence.
-    return [r for r in records if any(r[k] is not None for k in TRACKED)]
+    return [row for row in records if any(row[key] is not None for key in TRACKED)]
 
 
 def discover(paths: Iterable[Path]) -> list[Path]:
