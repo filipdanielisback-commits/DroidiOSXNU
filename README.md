@@ -32,7 +32,7 @@ Device support is not implied by appearing in this table. Each port needs its ow
 - `docs/` — architecture, research notes, roadmap, and legal boundaries.
 - `devices/` — per-device research and configuration notes.
 - `kernel/` — planned XNU integration notes and original patches.
-- `boot/` — planned boot-flow research.
+- `boot/` — boot-flow research and host-only simulation.
 - `drivers/` — hardware-driver research and original implementations.
 - `tools/` — small, auditable development utilities.
 - `ipsw/` — documentation for inspecting user-supplied firmware packages.
