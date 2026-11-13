@@ -30,6 +30,7 @@ All milestones are goals. None should be interpreted as completed until evidence
 - [ ] Document known gaps between public XNU source and iOS userspace.
 - [x] Add a best-effort host-side DTS/DTSI inventory parser and synthetic unit tests; semantic parsing and real-source validation remain future work.
 - [x] Add an explicitly non-operational host-side boot-flow simulator with synthetic tests: [simulator design](BOOT_FLOW_SIMULATOR.md).
+- [x] Add a host-only JSON platform-profile validator and synthetic tests for the Moto G60 research profile.
 
 ## Milestone 3 — platform feasibility
 
