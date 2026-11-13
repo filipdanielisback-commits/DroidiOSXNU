@@ -16,6 +16,7 @@ The test suite includes:
 - Platform profile validator tests. These check required fields, evidence metadata, unresolved hardware details, JSON error handling, and explicit host-only/non-bootable declarations. They validate structure, not physical hardware facts.
 
 - Platform dependency inventory validator tests. These use a static JSON fixture to check unique subsystem identifiers, evidence/unknown fields, accepted status labels, and explicit host-only scope; they do not test physical hardware.
+- Boot Manager GUI static checks. These confirm the mockup's non-operational labels, local-only click behavior, and documented absence of device operations.
 
 Future test reports should record:
 
