@@ -41,13 +41,13 @@ The pinned README's external-developer guidance describes an Apple/macOS-oriente
 - Additional dependencies including AvailabilityVersions, libdispatch, and XNU headers; DTrace is described as optional.
 - The documented build examples target Apple desktop platforms and their configurations.
 
-These notes describe upstream requirements, not a validated DroidiOSXNU build setup. No XNU build was attempted. No claim is made that Android, Termux, or a generic Linux host is a supported XNU build host for this project.
+These notes describe upstream requirements, not a validated DroidXNU build setup. No XNU build was attempted. No claim is made that Android, Termux, or a generic Linux host is a supported XNU build host for this project.
 
 ## License handling
 
 The pinned source tree includes Apple's **Apple Public Source License 2.0** in `APPLE_LICENSE`. The license text and per-file notices must be reviewed before any source is copied, modified, redistributed, or externally deployed. APSL obligations can depend on what is distributed and how it is used; this document is not legal advice.
 
-This pin does not change the license of DroidiOSXNU as a whole. The repository has not selected a single project-wide license, and third-party components may have different terms. Do not remove Apple notices or assume that all files in the upstream repository have identical provenance.
+This pin does not change the license of DroidXNU as a whole. The repository has not selected a single project-wide license, and third-party components may have different terms. Do not remove Apple notices or assume that all files in the upstream repository have identical provenance.
 
 ## Research-only handling
 
