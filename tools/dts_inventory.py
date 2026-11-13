@@ -74,7 +74,7 @@ def _clean_value(tokens: list[str]) -> str:
             out.append(ch)
             if escaped:
                 escaped = False
-            elif ch == "\\\\":
+            elif ch == "\\":
                 escaped = True
             elif ch == '"':
                 in_string = False
