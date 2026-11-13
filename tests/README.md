@@ -12,6 +12,7 @@ The test suite includes:
 
 - Synthetic Device Tree parser fixtures. These are minimal examples, not copied from vendor source and do not assert Moto G60 hardware facts.
 - Boot-flow simulator tests. These verify the simulator's reporting, injected-block behavior, and explicit non-bootable/no-hardware-access declarations. They do not test a real boot process.
+- XNU source pin verifier tests. These validate the local manifest and use mocked API responses to test matching and mismatching tag/commit metadata; tests make no network requests.
 - Platform profile validator tests. These check required fields, evidence metadata, unresolved hardware details, JSON error handling, and explicit host-only/non-bootable declarations. They validate structure, not physical hardware facts.
 
 Future test reports should record:
