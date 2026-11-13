@@ -27,7 +27,7 @@ All milestones are goals. None should be interpreted as completed until evidence
 - [x] Document upstream toolchain prerequisites and the documented macOS build-host context: [XNU source baseline](XNU_SOURCE_BASELINE.md). This is not a validated DroidiOSXNU build environment.
 - [x] Add a host-only verifier for the pinned XNU tag object and peeled commit; it checks upstream metadata without downloading or vendoring source. Actual source archive fetching remains deferred.
 - [ ] Establish tests that run without a phone.
-- [ ] Document known gaps between public XNU source and iOS userspace.
+- [x] Document known gaps between public XNU source and a complete iOS system: [XNU versus iOS system boundary](XNU_VS_IOS_SYSTEM_BOUNDARY.md).
 - [x] Add a best-effort host-side DTS/DTSI inventory parser and synthetic unit tests; semantic parsing and real-source validation remain future work.
 - [x] Add an explicitly non-operational host-side boot-flow simulator with synthetic tests: [simulator design](BOOT_FLOW_SIMULATOR.md).
 - [x] Add a host-only JSON platform-profile validator and synthetic tests for the Moto G60 research profile.
