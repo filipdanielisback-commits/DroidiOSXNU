@@ -9,6 +9,7 @@ The initial hardware research target is the **Motorola Moto G60 (XT2135-2)**. Dr
 ## Project direction
 
 - Treat Apple's public XNU source as the kernel baseline and keep its exact upstream revision pinned.
+- Fetch that exact revision into a separate ignored local source checkout; do not blur upstream Apple code with DroidXNU-owned changes.
 - Separate common XNU research from SoC-specific and device-specific research.
 - Document the platform abstractions and driver gaps that stand between generic ARM64 source support and a particular phone.
 - Build host-side validators, parsers, and tests before considering any platform implementation.
@@ -18,7 +19,7 @@ The initial hardware research target is the **Motorola Moto G60 (XT2135-2)**. Dr
 
 The HakiOS project is a useful public reference for the *organization* of an XNU-on-Android research project. Its documentation separates a common kernel and tools layer from SoC and per-device layers, and it describes QEMU as a separate hardware-independent research target. DroidXNU records that architecture as a design reference only; it does not assume HakiOS code, drivers, or device support can be reused on the Moto G60.
 
-See [DroidXNU architecture alignment](docs/XNU_ARCHITECTURE_ALIGNMENT.md), the [XNU subsystem research map](docs/XNU_SUBSYSTEM_RESEARCH_MAP.md), and the [Moto G60 XNU platform evidence map](docs/MOTO_G60_XNU_PLATFORM_EVIDENCE_MAP.md).
+See [DroidXNU architecture alignment](docs/XNU_ARCHITECTURE_ALIGNMENT.md), the [XNU subsystem research map](docs/XNU_SUBSYSTEM_RESEARCH_MAP.md), the [Moto G60 XNU platform evidence map](docs/MOTO_G60_XNU_PLATFORM_EVIDENCE_MAP.md), and the new [XNU ARM64 platform foundations](docs/XNU_ARM64_PLATFORM_FOUNDATIONS.md).
 
 ## Initial device
 
@@ -32,7 +33,7 @@ Device support is not implied by appearing in this table. The Moto G60 needs its
 
 - `docs/` — architecture, research notes, roadmap, and legal boundaries.
 - `devices/` — per-device research and configuration notes.
-- `kernel/` — pinned XNU source metadata and kernel research notes.
+- `kernel/` — pinned XNU source metadata, source-fetch tooling, and kernel research notes.
 - `boot/` — non-operational boot-flow research and host-only simulation.
 - `drivers/` — hardware-driver research and implementation status.
 - `tools/` — auditable host-side development utilities.
@@ -48,7 +49,8 @@ The current pinned baseline is documented in [XNU source baseline](docs/XNU_SOUR
 
 ## Project boundaries
 
-- Keep work to static source research, documentation, host-side tools, simulations, and tests.
+- Keep work to source research, documentation, host-side tools, and tests.
+- The Apple XNU checkout is local and ignored; it is not committed into this repository.
 - Do not commit IPSW files, extracted proprietary firmware, keys, certificates, personal data, or device dumps.
 - Do not claim that a mockup or simulator is a real bootloader or device test.
 - Review the exact license and notices for every external component before considering reuse.
