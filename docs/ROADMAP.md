@@ -32,6 +32,7 @@ All milestones are goals. None should be interpreted as completed until evidence
 - [x] Add an explicitly non-operational host-side boot-flow simulator with synthetic tests: [simulator design](BOOT_FLOW_SIMULATOR.md).
 - [x] Add a host-only JSON platform-profile validator and synthetic tests for the Moto G60 research profile.
 - [x] Publish a structured static platform dependency inventory with evidence, confidence, priority, and unresolved questions; add a standard-library validator and synthetic tests: [platform dependency inventory](../devices/moto-g60/platform-dependencies.json).
+- [x] Add a browser-based, host-only Boot Manager GUI mockup with local-only simulated progress and static safety tests: [GUI prototype documentation](BOOT_MANAGER_GUI.md).
 
 ## Milestone 3 — platform feasibility
 
