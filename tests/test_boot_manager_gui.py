@@ -17,7 +17,7 @@ class BootManagerGuiTests(unittest.TestCase):
 
     def test_interactions_are_limited_to_local_page_status(self):
         source = GUI.read_text(encoding="utf-8").lower()
-        self.assertIn('addEventListener("click"', source)
+        self.assertIn('addeventlistener("click"', source)
         self.assertIn("log.textcontent", source)
         self.assertNotIn("fetch(", source)
         self.assertNotIn("xmlhttprequest", source)
