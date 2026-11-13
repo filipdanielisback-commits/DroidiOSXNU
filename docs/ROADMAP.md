@@ -34,10 +34,10 @@ All milestones are goals. None should be interpreted as completed until evidence
 
 ## Milestone 3 — platform feasibility
 
-- [ ] Assess whether the selected XNU revision supports the relevant ARM64 platform assumptions.
-- [ ] Document required platform abstractions and driver work.
+- [x] Complete a static assessment of the selected XNU revision's documented ARM64 assumptions against the Moto G60 profile; device compatibility remains unproven: [feasibility assessment](MOTO_G60_XNU_FEASIBILITY.md).
+- [x] Document the required platform abstractions and major driver gaps in the feasibility assessment.
 - [ ] Evaluate a non-destructive test strategy before any device experiments.
-- [ ] Publish a feasibility report with blockers and unknowns.
+- [x] Publish a static feasibility report with blockers and unresolved hardware questions: [Moto G60 / XNU feasibility](MOTO_G60_XNU_FEASIBILITY.md).
 
 ## Milestone 4 — feature research
 
