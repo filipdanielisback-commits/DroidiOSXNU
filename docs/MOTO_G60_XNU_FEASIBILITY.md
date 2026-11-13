@@ -36,7 +36,7 @@ Status labels mean:
 - **Documented overlap** — relevant public source or architecture evidence exists, but this is not a compatibility test.
 - **Partially documented** — some source references exist; important details remain unresolved.
 - **Unknown / unverified** — the required platform contract has not been established.
-- **Not implemented** — no DroidiOSXNU implementation or test evidence exists.
+- **Not implemented** — no DroidXNU implementation or test evidence exists.
 
 | Area | Evidence and comparison | Status | Why it matters |
 |---|---|---|---|
@@ -54,7 +54,7 @@ Status labels mean:
 | Wi-Fi and Bluetooth | Community-tree clues only; physical radio identity unresolved | Unknown / not implemented | Driver choice and firmware interface cannot be selected confidently |
 | Audio, GPU, cameras and sensors | Linux source contains subsystem clues, but no matching XNU drivers/framework integration is present | Partially documented; not implemented | Each subsystem requires its own hardware and software contract |
 | Boot environment | Public XNU baseline describes Apple-oriented development/platform context; Moto G60 handoff contract is not established | Unknown / unverified | No claim can be made about a compatible entry environment |
-| Build environment | Upstream README documents Apple/macOS-oriented prerequisites; no supported DroidiOSXNU cross-build environment is validated | Unknown / unverified | No successful target build has been demonstrated |
+| Build environment | Upstream README documents Apple/macOS-oriented prerequisites; no supported DroidXNU cross-build environment is validated | Unknown / unverified | No successful target build has been demonstrated |
 
 ## Required platform abstractions
 
