@@ -1,0 +1,155 @@
+{
+  "inventory_schema_version": 1,
+  "project": "DroidiOSXNU",
+  "device_profile": "devices/moto-g60/platform-profile.json",
+  "assessment": "static_source_research_only",
+  "dependencies": [
+    {
+      "id": "cpu_architecture",
+      "area": "CPU architecture",
+      "status": "documented_overlap",
+      "confidence": "high",
+      "priority": "critical",
+      "evidence": ["docs/MOTO_G60_XNU_FEASIBILITY.md", "docs/XNU_SOURCE_BASELINE.md"],
+      "finding": "The device profile and selected XNU source baseline both document ARM64.",
+      "unknowns": ["Exact target CPU feature requirements and execution-state assumptions are not mapped."]
+    },
+    {
+      "id": "cpu_topology",
+      "area": "CPU topology and SMP",
+      "status": "partially_documented",
+      "confidence": "low",
+      "priority": "critical",
+      "evidence": ["docs/MOTO_G60_XNU_FEASIBILITY.md", "docs/MOTO_G60_KERNEL_SOURCE_AUDIT.md"],
+      "finding": "Qualcomm platform source contains CPU and platform clues, but no corresponding XNU platform integration is documented.",
+      "unknowns": ["Target topology details and an XNU-compatible multiprocessor contract remain unverified."]
+    },
+    {
+      "id": "interrupts",
+      "area": "Interrupt controller",
+      "status": "partially_documented",
+      "confidence": "low",
+      "priority": "critical",
+      "evidence": ["docs/MOTO_G60_XNU_FEASIBILITY.md", "docs/MOTO_G60_DEVICE_TREE_AUDIT.md"],
+      "finding": "Platform source provides declarations, but equivalent XNU interrupt integration has not been identified.",
+      "unknowns": ["The complete interrupt-controller contract and XNU integration are unknown."]
+    },
+    {
+      "id": "timers",
+      "area": "Timers and timebase",
+      "status": "partially_documented",
+      "confidence": "low",
+      "priority": "critical",
+      "evidence": ["docs/MOTO_G60_XNU_FEASIBILITY.md", "docs/MOTO_G60_DEVICE_TREE_AUDIT.md"],
+      "finding": "Source references indicate platform timer and clock facilities; an XNU-compatible timebase is not established.",
+      "unknowns": ["Timer source, frequency assumptions, and XNU timekeeping integration remain unverified."]
+    },
+    {
+      "id": "memory",
+      "area": "Physical memory and MMU",
+      "status": "partially_documented",
+      "confidence": "low",
+      "priority": "critical",
+      "evidence": ["docs/MOTO_G60_XNU_FEASIBILITY.md", "docs/MOTO_G60_DEVICE_TREE_AUDIT.md"],
+      "finding": "Device-tree material provides memory-related declarations, but no validated XNU memory contract is recorded.",
+      "unknowns": ["Physical map, reserved regions, MMU attributes, and memory handoff assumptions are unresolved."]
+    },
+    {
+      "id": "iommu_dma",
+      "area": "IOMMU and DMA",
+      "status": "partially_documented",
+      "confidence": "low",
+      "priority": "critical",
+      "evidence": ["docs/MOTO_G60_XNU_FEASIBILITY.md", "docs/MOTO_G60_DEVICE_TREE_AUDIT.md"],
+      "finding": "Qualcomm SMMU-related source references exist; matching XNU DMA and IOMMU behavior is not documented.",
+      "unknowns": ["DMA coherency, address translation, and device isolation contracts remain unknown."]
+    },
+    {
+      "id": "storage",
+      "area": "Storage controller",
+      "status": "partially_documented",
+      "confidence": "low",
+      "priority": "critical",
+      "evidence": ["docs/MOTO_G60_XNU_FEASIBILITY.md", "docs/MOTO_G60_DEVICE_TREE_AUDIT.md"],
+      "finding": "UFS controller and PHY references appear in platform source; no XNU storage integration is recorded.",
+      "unknowns": ["The complete storage platform contract and any XNU driver support are unverified."]
+    },
+    {
+      "id": "clocks_power",
+      "area": "Clocks, resets, regulators, and power",
+      "status": "partially_documented",
+      "confidence": "low",
+      "priority": "high",
+      "evidence": ["docs/MOTO_G60_XNU_FEASIBILITY.md", "docs/MOTO_G60_DEVICE_TREE_AUDIT.md"],
+      "finding": "PM6150/PM6150L and clock, reset, and regulator descriptions occur in the matching source material.",
+      "unknowns": ["Dependencies and a compatible XNU platform power-management model are not established."]
+    },
+    {
+      "id": "display_touch",
+      "area": "Display and touchscreen",
+      "status": "partially_documented",
+      "confidence": "low",
+      "priority": "high",
+      "evidence": ["docs/MOTO_G60_XNU_FEASIBILITY.md", "docs/MOTO_G60_DEVICE_TREE_AUDIT.md", "docs/MOTO_G60_XNU_DRIVER_GAP_MATRIX.md"],
+      "finding": "Panel and touchscreen interface clues are documented, while the fitted touchscreen revision remains unresolved and XNU support is absent.",
+      "unknowns": ["Physical controller identity and an XNU display/input integration are unknown."]
+    },
+    {
+      "id": "usb",
+      "area": "USB and Type-C",
+      "status": "partially_documented",
+      "confidence": "low",
+      "priority": "high",
+      "evidence": ["docs/MOTO_G60_XNU_FEASIBILITY.md", "docs/MOTO_G60_XNU_DRIVER_GAP_MATRIX.md"],
+      "finding": "Qualcomm USB and Type-C source references exist; no corresponding XNU integration is documented.",
+      "unknowns": ["Controller, PHY, role behavior, and XNU support remain unverified."]
+    },
+    {
+      "id": "wireless",
+      "area": "Wi-Fi and Bluetooth",
+      "status": "unknown",
+      "confidence": "unknown",
+      "priority": "high",
+      "evidence": ["docs/MOTO_G60_WIRELESS_RESEARCH.md", "docs/MOTO_G60_XNU_FEASIBILITY.md"],
+      "finding": "Community source contains software-stack clues, but the physical wireless combo identity is unresolved.",
+      "unknowns": ["Exact radio identity, bus interface, firmware requirements, and XNU support are unknown."]
+    },
+    {
+      "id": "multimedia_sensors",
+      "area": "Audio, GPU, cameras, and sensors",
+      "status": "partially_documented",
+      "confidence": "low",
+      "priority": "medium",
+      "evidence": ["docs/MOTO_G60_XNU_FEASIBILITY.md", "docs/MOTO_G60_DEVICE_TREE_AUDIT.md", "docs/MOTO_G60_XNU_DRIVER_GAP_MATRIX.md"],
+      "finding": "Platform source contains subsystem clues, but matching XNU drivers and complete hardware identification are absent.",
+      "unknowns": ["Populated component revisions, interfaces, and XNU subsystem integration remain unresolved."]
+    },
+    {
+      "id": "platform_handoff",
+      "area": "Platform handoff contract",
+      "status": "unknown",
+      "confidence": "unknown",
+      "priority": "critical",
+      "evidence": ["docs/MOTO_G60_XNU_FEASIBILITY.md", "docs/XNU_VS_IOS_SYSTEM_BOUNDARY.md"],
+      "finding": "No documented compatible platform handoff contract has been established for this device and XNU baseline.",
+      "unknowns": ["The required platform contract and its compatibility with the selected XNU baseline are unknown."]
+    },
+    {
+      "id": "build_environment",
+      "area": "Build environment",
+      "status": "unknown",
+      "confidence": "unknown",
+      "priority": "high",
+      "evidence": ["docs/XNU_SOURCE_BASELINE.md", "docs/MOTO_G60_XNU_FEASIBILITY.md"],
+      "finding": "Upstream documentation describes Apple-oriented build prerequisites; no project target build environment is validated.",
+      "unknowns": ["A supported and reproducible host toolchain for this research target has not been established."]
+    }
+  ],
+  "scope": {
+    "static_research_only": true,
+    "host_side_only": true,
+    "hardware_accessed": false,
+    "device_storage_modified": false,
+    "bootable": false
+  }
+}
