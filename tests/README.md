@@ -2,13 +2,16 @@
 
 Start with host-side checks that do not require a phone.
 
-Run the synthetic Device Tree parser tests from the repository root:
+Run all synthetic tests from the repository root:
 
 ```sh
 python3 -m unittest discover -s tests -v
 ```
 
-The DTS fixtures in these tests are minimal, synthetic examples; they are not copied from vendor source and do not assert Moto G60 hardware facts.
+The test suite includes:
+
+- Synthetic Device Tree parser fixtures. These are minimal examples, not copied from vendor source and do not assert Moto G60 hardware facts.
+- Boot-flow simulator tests. These verify the simulator's reporting, injected-block behavior, and explicit non-bootable/no-hardware-access declarations. They do not test a real boot process.
 
 Future test reports should record:
 
@@ -19,4 +22,4 @@ Future test reports should record:
 - observed result and relevant sanitized logs;
 - known limitations.
 
-Do not label a subsystem as working based only on a successful compile.
+Do not label a subsystem as working based only on a successful compile or a completed simulation.
