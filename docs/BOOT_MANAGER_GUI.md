@@ -1,26 +1,15 @@
-# Boot Manager GUI prototype
+# Research GUI prototype
 
-The first GUI milestone is a browser-based, host-only visual prototype at [gui/boot-manager/index.html](../gui/boot-manager/index.html).
+The repository contains browser-based visualizations for presenting research metadata. They are optional documentation aids, not part of the XNU kernel architecture.
 
-## What it demonstrates
+## Scope
 
-- A desktop-style research dashboard for the Moto G60 profile.
-- Three illustrative stages: static profile display, compatibility review, and simulation summary.
-- A local-only button interaction that updates the page's status text.
-- Explicit unknown and not-implemented labels for hardware and XNU support.
-- A visible warning that the interface is not a bootloader or installer.
-
-## Run it on Windows 11 x64
-
-Open `gui/boot-manager/index.html` in a current web browser. No phone, driver, administrator permission, Python package, USB connection, firmware file, or network service is required.
+- Show the Moto G60 research profile and documented/unknown compatibility areas.
+- Present clearly labeled simulated states for explaining project status.
+- Run locally in a browser without a phone connection or external service.
 
 ## Non-operational boundary
 
-This prototype is ordinary browser UI. It does not communicate with Android, a bootloader, USB devices, storage, partitions, firmware, or a kernel. It contains no flashing, installation, recovery, unlock, or device-control feature. Its simulated progress is fictional and must not be reported as a hardware test or proof of compatibility.
+The GUI is not a bootloader, installer, recovery environment, or iOS interface. It does not communicate with Android, a bootloader, USB devices, storage, partitions, firmware, or a kernel. Simulated progress is fictional and is not evidence of hardware compatibility.
 
-The GUI is not itself a bootloader. It does not create or configure a bootable image. Any future research image must remain inert data-only content and must not contain executable boot code, a boot sector, partition table, filesystem, or device installation workflow.
-
-
-## Mobile-first preview
-
-A touch-friendly responsive version is available at [gui/boot-manager/mobile.html](../gui/boot-manager/mobile.html). Open that file in a mobile browser or use GitHub's file preview. It includes Overview, Platform, and About tabs, a responsive target profile, and local-only simulation controls. It remains a non-operational visual mockup and does not connect to the device.
+The project direction is the actual public XNU kernel as a research foundation. UI work must not be presented as kernel implementation or allowed to distract from source analysis, platform research, and host-side validation.
