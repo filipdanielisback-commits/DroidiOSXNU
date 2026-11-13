@@ -9,6 +9,9 @@
 /*.dtb
 /*.dtbo
 
+# Local upstream source checkout (fetched at the exact pin; never vendored)
+kernel/upstream/xnu/
+
 # Local device data and firmware (never commit)
 fw-*/
 /firmware/
