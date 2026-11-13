@@ -19,6 +19,8 @@ The exact model, memory configuration, storage capacity/usage, and build string 
 
 Public Android device trees identify `hanoip` as a shared Moto G40 Fusion/Moto G60 platform. The Moto G40 Fusion and Moto G60 have regional hardware differences, so do not assume every listed component or configuration is identical.
 
+A machine-readable, evidence-labelled snapshot is available in [platform-profile.json](platform-profile.json). Its validator checks structure and declared unknowns only; it does not independently verify hardware.
+
 ## Preliminary hardware inventory
 
 | Subsystem | Research finding | Confidence / next check |
