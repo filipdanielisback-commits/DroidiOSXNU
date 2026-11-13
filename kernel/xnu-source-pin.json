@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "upstream": {
+    "repository": "apple-oss-distributions/xnu",
+    "tag": "xnu-12377.121.6",
+    "tag_object_sha": "9b6e7590204b89788e28b137ddfc897bb1292d8b",
+    "commit_sha": "ac9718fb1af618d5ce8678d0dc6e8a58f252216f"
+  },
+  "license": {
+    "file": "APPLE_LICENSE",
+    "name": "Apple Public Source License 2.0",
+    "spdx_identifier": "APSL-2.0"
+  },
+  "handling": {
+    "source_vendored": false,
+    "device_access": false,
+    "bootable_artifact": false
+  }
+}
