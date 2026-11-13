@@ -2,7 +2,7 @@
 
 ## Purpose and scope
 
-DroidiOSXNU uses the pinned public XNU source as a kernel research baseline. **XNU source is not a complete iOS operating system.** A kernel source tree alone does not provide the full userspace, platform integration, trusted boot environment, or device-specific software needed to reproduce iOS.
+DroidXNU uses the pinned public XNU source as a kernel research baseline. **XNU source is not a complete iOS operating system.** A kernel source tree alone does not provide the full userspace, platform integration, trusted boot environment, or device-specific software needed to reproduce iOS.
 
 This document records the boundary so that repository progress is not overstated. It is a static research note; it does not describe a procedure for assembling, installing, or booting an operating system.
 
@@ -14,7 +14,7 @@ That gives researchers material for studying kernel interfaces and implementatio
 
 ## Major areas outside the XNU source tree
 
-| Area | Why the kernel repository is not enough | DroidiOSXNU status |
+| Area | Why the kernel repository is not enough | DroidXNU status |
 |---|---|---|
 | User-space process environment | A running system needs user-space programs and libraries, not only a kernel. | No complete iOS-compatible userland is present or implemented. |
 | System services and launch environment | Background services, service configuration, and system policy operate outside the kernel source tree. | Not present as an iOS service stack. |
@@ -60,7 +60,7 @@ The following statements are **not** supported:
 - "The XNU repository contains the complete iOS operating system."
 - "ARM64 support means XNU supports the Moto G60."
 - "A successful host-side test means the phone can boot or run iOS."
-- "DroidiOSXNU has iOS userspace, working hardware drivers, or a bootable image."
+- "DroidXNU has iOS userspace, working hardware drivers, or a bootable image."
 
 ## Project handling rules
 
