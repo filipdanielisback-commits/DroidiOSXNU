@@ -13,3 +13,5 @@ The repository contains browser-based visualizations for presenting research met
 The GUI is not a bootloader, installer, recovery environment, or iOS interface. It does not communicate with Android, a bootloader, USB devices, storage, partitions, firmware, or a kernel. Simulated progress is fictional and is not evidence of hardware compatibility.
 
 The project direction is the actual public XNU kernel as a research foundation. UI work must not be presented as kernel implementation or allowed to distract from source analysis, platform research, and host-side validation.
+
+Any future research image must remain **inert data-only** content; it must not contain executable boot code, a boot sector, partition table, filesystem, or device installation workflow.
