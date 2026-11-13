@@ -15,6 +15,8 @@ The test suite includes:
 - XNU source pin verifier tests. These validate the local manifest and use mocked API responses to test matching and mismatching tag/commit metadata; tests make no network requests.
 - Platform profile validator tests. These check required fields, evidence metadata, unresolved hardware details, JSON error handling, and explicit host-only/non-bootable declarations. They validate structure, not physical hardware facts.
 
+- Platform dependency inventory validator tests. These use a static JSON fixture to check unique subsystem identifiers, evidence/unknown fields, accepted status labels, and explicit host-only scope; they do not test physical hardware.
+
 Future test reports should record:
 
 - test name and purpose;
