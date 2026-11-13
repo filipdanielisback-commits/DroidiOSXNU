@@ -61,9 +61,44 @@ def strip_comments(source: str) -> str:
 
 
 def _clean_value(tokens: list[str]) -> str:
-    """Join tokens without adding whitespace around comma separators."""
+    """Join tokens while normalizing separators only outside quoted strings."""
     value = " ".join(tokens).strip()
-    return re.sub(r"\s*,\s*", ", ", value)
+    out: list[str] = []
+    in_string = False
+    escaped = False
+    i = 0
+
+    while i < len(value):
+        ch = value[i]
+        if in_string:
+            out.append(ch)
+            if escaped:
+                escaped = False
+            elif ch == "\\\\":
+                escaped = True
+            elif ch == '"':
+                in_string = False
+            i += 1
+            continue
+
+        if ch == '"':
+            in_string = True
+            out.append(ch)
+            i += 1
+        elif ch == ",":
+            while out and out[-1].isspace():
+                out.pop()
+            out.append(",")
+            i += 1
+            while i < len(value) and value[i].isspace():
+                i += 1
+            if i < len(value) and value[i] != ",":
+                out.append(" ")
+        else:
+            out.append(ch)
+            i += 1
+
+    return "".join(out)
 
 
 def parse_dts(source: str, source_name: str = "<memory>") -> list[dict[str, object]]:
