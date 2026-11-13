@@ -15,4 +15,17 @@ The tool extracts node paths and the `compatible`, `reg`, and `status` propertie
 
 **Limitations:** this is a lightweight text inventory, not a Device Tree compiler. It does not resolve `/include/`, `#include`, overlays, labels, macros, phandles, or parent bus address-cell rules. A missing `status` property is left blank (Device Tree's default is generally `okay`). Use the Device Tree Compiler (`dtc`) and binding documentation for syntax and semantic validation. Review output before treating it as hardware fact.
 
+## Boot-flow simulator
+
+Run the host-only architecture simulation from the repository root:
+
+```sh
+python3 tools/boot_flow_simulator.py
+python3 tools/boot_flow_simulator.py --list-stages
+python3 tools/boot_flow_simulator.py --json
+python3 tools/boot_flow_simulator.py --fail-at kernel_plan
+```
+
+It reports illustrative planning stages and can inject a fictional block to exercise status reporting. It does not load or execute a kernel, inspect hardware, access a bootloader, read/write device storage, or create a boot image. See [the simulator design](../docs/BOOT_FLOW_SIMULATOR.md).
+
 Tools must not download or redistribute proprietary iOS binaries, handle private signing keys, or attempt to bypass platform security controls. Document inputs, outputs, dependencies, and tests for each tool.
