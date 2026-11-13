@@ -19,3 +19,8 @@ Open `gui/boot-manager/index.html` in a current web browser. No phone, driver, a
 This prototype is ordinary browser UI. It does not communicate with Android, a bootloader, USB devices, storage, partitions, firmware, or a kernel. It contains no flashing, installation, recovery, unlock, or device-control feature. Its simulated progress is fictional and must not be reported as a hardware test or proof of compatibility.
 
 The GUI is not itself a bootloader. It does not create or configure a bootable image. Any future research image must remain inert data-only content and must not contain executable boot code, a boot sector, partition table, filesystem, or device installation workflow.
+
+
+## Mobile-first preview
+
+A touch-friendly responsive version is available at [gui/boot-manager/mobile.html](../gui/boot-manager/mobile.html). Open that file in a mobile browser or use GitHub's file preview. It includes Overview, Platform, and About tabs, a responsive target profile, and local-only simulation controls. It remains a non-operational visual mockup and does not connect to the device.
