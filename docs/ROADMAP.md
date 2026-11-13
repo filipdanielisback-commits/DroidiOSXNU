@@ -1,12 +1,12 @@
-# Research roadmap
+# DroidXNU research roadmap
 
-All milestones are goals. None should be interpreted as completed until evidence is linked here.
+All milestones are goals. A milestone is complete only when its evidence is linked here. Documentation or host-side tests must never be presented as proof of phone compatibility.
 
 ## Milestone 0 — repository foundations
 
 - [x] Establish project scope and initial documentation.
 - [x] Add a firmware/build-artifact ignore policy.
-- [ ] Decide the repository license after reviewing the planned components.
+- [ ] Decide the repository license after reviewing planned components.
 - [ ] Add issue templates and a test-report template.
 
 ## Milestone 1 — Moto G60 inventory
@@ -15,44 +15,44 @@ All milestones are goals. None should be interpreted as completed until evidence
 - [x] Locate the Motorola kernel source release matching the reported software build.
 - [x] Review the matching source's major device-tree peripheral declarations.
 - [x] Publish preliminary WLAN/Bluetooth software-stack clues while keeping physical chip identity unresolved.
-- [x] Publish an initial hardware-to-XNU driver gap matrix: [Moto G60 XNU driver gap matrix](MOTO_G60_XNU_DRIVER_GAP_MATRIX.md).
-- [ ] Verify remaining SoC, boot architecture, memory map, interrupt, timer, storage, Wi-Fi, Bluetooth, audio, GPU, camera, and sensor details from authoritative sources.
-- [ ] Resolve the board-ID and touchscreen-controller discrepancies.
-- [ ] Map each component to available public documentation and open-source drivers.
-- [ ] Record boot-chain constraints and supported development interfaces.
+- [x] Publish the initial hardware-to-XNU driver gap matrix.
+- [ ] Verify remaining SoC, memory, interrupt, timer, storage, radio, audio, GPU, camera, and sensor details from authoritative sources.
+- [ ] Resolve board-ID and touchscreen-controller discrepancies.
+- [ ] Map components to public documentation and open-source driver references.
 
 ## Milestone 2 — host-side research
 
-- [x] Pin a public XNU source revision and record its license: [XNU source baseline](XNU_SOURCE_BASELINE.md).
-- [x] Document upstream toolchain prerequisites and the documented macOS build-host context: [XNU source baseline](XNU_SOURCE_BASELINE.md). This is not a validated DroidiOSXNU build environment.
-- [x] Add a host-only verifier for the pinned XNU tag object and peeled commit; it checks upstream metadata without downloading or vendoring source. Actual source archive fetching remains deferred.
-- [ ] Establish tests that run without a phone.
-- [x] Document known gaps between public XNU source and a complete iOS system: [XNU versus iOS system boundary](XNU_VS_IOS_SYSTEM_BOUNDARY.md).
-- [x] Add a best-effort host-side DTS/DTSI inventory parser and synthetic unit tests; semantic parsing and real-source validation remain future work.
-- [x] Add an explicitly non-operational host-side boot-flow simulator with synthetic tests: [simulator design](BOOT_FLOW_SIMULATOR.md).
-- [x] Add a host-only JSON platform-profile validator and synthetic tests for the Moto G60 research profile.
-- [x] Publish a structured static platform dependency inventory with evidence, confidence, priority, and unresolved questions; add a standard-library validator and synthetic tests: [platform dependency inventory](../devices/moto-g60/platform-dependencies.json).
-- [x] Add a browser-based, host-only Boot Manager GUI mockup with local-only simulated progress and static safety tests: [GUI prototype documentation](BOOT_MANAGER_GUI.md).
+- [x] Pin a public XNU source revision and record its license.
+- [x] Record upstream toolchain/build-host notes without claiming a validated DroidXNU build environment.
+- [x] Add a host-only verifier for the pinned XNU tag object and peeled commit.
+- [x] Document the boundary between public XNU and a complete iOS system.
+- [x] Add a best-effort DTS/DTSI inventory parser and synthetic unit tests.
+- [x] Add an explicitly non-operational host-side boot-flow simulator with synthetic tests.
+- [x] Add a host-only JSON platform-profile validator and synthetic tests.
+- [x] Publish a structured static platform dependency inventory with evidence, confidence, priority, and unresolved questions.
+- [x] Add a browser-based research visualization with static tests; it is not a bootloader or installer.
 
 ## Milestone 3 — platform feasibility
 
-- [x] Complete a static assessment of the selected XNU revision's documented ARM64 assumptions against the Moto G60 profile; device compatibility remains unproven: [feasibility assessment](MOTO_G60_XNU_FEASIBILITY.md).
-- [x] Document the required platform abstractions and major driver gaps in the feasibility assessment.
-- [ ] Evaluate a non-destructive test strategy before any device experiments.
-- [x] Publish a static feasibility report with blockers and unresolved hardware questions: [Moto G60 / XNU feasibility](MOTO_G60_XNU_FEASIBILITY.md).
+- [x] Complete a static assessment of the selected XNU revision's documented ARM64 assumptions against the Moto G60 profile.
+- [x] Document required platform abstractions and major driver gaps.
+- [x] Publish the static feasibility report.
+- [ ] Improve the evidence map for unresolved hardware details.
 
-## Milestone 4 — feature research
+## Milestone 4 — XNU architecture alignment
 
-Track each subsystem separately: display, touchscreen, storage, USB, Wi-Fi, Bluetooth, audio, GPU, sensors, cameras, and power management. A feature is not "working" until a reproducible test report is attached.
+- [x] Review HakiOS's public high-level architecture and repository separation.
+- [x] Record the common-kernel / SoC / device / host-test separation as a reference model.
+- [x] State explicitly that HakiOS code and device support are not assumed reusable on the Moto G60.
+- [ ] Design a DroidXNU source-tree organization for common, SoC, and device research without importing third-party code.
+- [ ] Document a provenance and license review checklist for any future external source consideration.
 
-## Milestone 5 — future device assessments
+See [XNU architecture alignment](XNU_ARCHITECTURE_ALIGNMENT.md).
 
-After the Moto G60 inventory is complete, assess each device independently:
+## Milestone 5 — feature research
 
-- Redmi Note 13 Pro 5G
-- POCO X5 5G
-- POCO X6 Pro 5G
-- Google Pixel 4a
-- Redmi Note 10 Pro
+Track display, touchscreen, storage, USB, Wi-Fi, Bluetooth, audio, GPU, sensors, cameras, and power management separately. A feature is not "working" until there is a clearly scoped, reproducible test report. Static source references alone are not implementation evidence.
 
-A shared SoC does not guarantee identical boot firmware, board wiring, display, touch, or peripheral support.
+## Milestone 6 — future platform assessments
+
+Only after the initial Moto G60 research is well documented should additional devices be assessed independently. A shared SoC does not guarantee identical board wiring, firmware, display, touch, or peripheral support.
