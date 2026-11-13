@@ -18,7 +18,7 @@ The initial hardware research target is the **Motorola Moto G60 (XT2135-2)**. Dr
 
 The HakiOS project is a useful public reference for the *organization* of an XNU-on-Android research project. Its documentation separates a common kernel and tools layer from SoC and per-device layers, and it describes QEMU as a separate hardware-independent research target. DroidXNU records that architecture as a design reference only; it does not assume HakiOS code, drivers, or device support can be reused on the Moto G60.
 
-See [DroidXNU architecture alignment](docs/XNU_ARCHITECTURE_ALIGNMENT.md) and the [XNU subsystem research map](docs/XNU_SUBSYSTEM_RESEARCH_MAP.md).
+See [DroidXNU architecture alignment](docs/XNU_ARCHITECTURE_ALIGNMENT.md), the [XNU subsystem research map](docs/XNU_SUBSYSTEM_RESEARCH_MAP.md), and the [Moto G60 XNU platform evidence map](docs/MOTO_G60_XNU_PLATFORM_EVIDENCE_MAP.md).
 
 ## Initial device
 
@@ -44,7 +44,7 @@ Device support is not implied by appearing in this table. The Moto G60 needs its
 
 XNU is an open-source kernel, not the complete iOS operating system. Public XNU source does not include all proprietary iOS frameworks, services, platform components, firmware, or signing materials. ARM64 support in upstream XNU does not establish support for the Moto G60's specific SoC, board, memory map, interrupts, storage, or peripherals.
 
-The current pinned baseline is documented in [XNU source baseline](docs/XNU_SOURCE_BASELINE.md). The current static assessment finds architecture-level ARM64 overlap only; Moto G60 compatibility is unproven. See [Moto G60 XNU feasibility](docs/MOTO_G60_XNU_FEASIBILITY.md) and [XNU versus iOS system boundary](docs/XNU_VS_IOS_SYSTEM_BOUNDARY.md).
+The current pinned baseline is documented in [XNU source baseline](docs/XNU_SOURCE_BASELINE.md). The current static assessment finds architecture-level ARM64 overlap only; Moto G60 compatibility is unproven. See [Moto G60 XNU feasibility](docs/MOTO_G60_XNU_FEASIBILITY.md), [XNU versus iOS system boundary](docs/XNU_VS_IOS_SYSTEM_BOUNDARY.md), and the [platform evidence map](docs/MOTO_G60_XNU_PLATFORM_EVIDENCE_MAP.md).
 
 ## Project boundaries
 
