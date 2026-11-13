@@ -37,7 +37,10 @@ All milestones are goals. A milestone is complete only when its evidence is link
 - [x] Complete a static assessment of the selected XNU revision's documented ARM64 assumptions against the Moto G60 profile.
 - [x] Document required platform abstractions and major driver gaps.
 - [x] Publish the static feasibility report.
-- [ ] Improve the evidence map for unresolved hardware details.
+- [x] Publish a source-linked Moto G60-to-XNU platform evidence map.
+- [ ] Resolve remaining hardware evidence gaps and board/component discrepancies.
+
+See [Moto G60 XNU platform evidence map](MOTO_G60_XNU_PLATFORM_EVIDENCE_MAP.md) for the subsystem-by-subsystem source correlation and confidence labels.
 
 ## Milestone 4 — XNU architecture alignment
 
