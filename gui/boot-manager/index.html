@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="DroidiOSXNU non-operational boot-flow research GUI prototype">
+<title>DroidiOSXNU · Research Manager</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1020;--panel:#121a2e;--line:#273451;--text:#edf3ff;--muted:#9eacc7;--accent:#8ab4ff;--good:#8bd5a8;--warn:#f3c978}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0,#1b2b4b 0,transparent 34%),var(--bg);color:var(--text);font:15px/1.5 "Segoe UI",system-ui,sans-serif}
+header{padding:28px clamp(18px,5vw,64px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+.brand{font-size:20px;font-weight:700;letter-spacing:.04em}.sub,.muted{color:var(--muted)}.pill{border:1px solid #806b3c;color:var(--warn);padding:6px 11px;border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.06em}
+main{max-width:1180px;margin:auto;padding:34px 22px 60px}.intro{margin-bottom:26px}.intro h1{font-size:clamp(28px,5vw,42px);margin:0 0 8px}.intro p{max-width:760px;color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:1.35fr .85fr;gap:18px}.panel{background:linear-gradient(160deg,#17223a,var(--panel));border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 16px 40px #0003}.panel h2{font-size:17px;margin:0 0 16px}.stages{display:grid;gap:10px}.stage{display:flex;align-items:center;gap:12px;padding:13px;border:1px solid var(--line);border-radius:12px;background:#0d1527}.dot{width:10px;height:10px;border-radius:50%;background:#64748b;flex:none}.stage.done .dot{background:var(--good);box-shadow:0 0 12px #8bd5a855}.stage.active .dot{background:var(--accent);box-shadow:0 0 12px #8ab4ff88}.stage strong{display:block}.stage small{color:var(--muted)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}button{border:1px solid #5476a8;background:#203b62;color:white;padding:10px 15px;border-radius:10px;font:inherit;font-weight:600;cursor:pointer}button.secondary{background:transparent;border-color:var(--line);color:var(--text)}button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.stat{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.stat:last-child{border:0}.value{font-weight:650;text-align:right}.ok{color:var(--good)}.unknown{color:var(--warn)}
+.notice{margin-top:18px;border:1px solid #806b3c;background:#2a2418;color:#f5dfb4;padding:15px;border-radius:12px}.log{margin-top:18px;background:#080d18;border:1px solid var(--line);border-radius:12px;padding:14px;min-height:80px;color:#b9c9e8;font:13px/1.6 ui-monospace,Consolas,monospace;white-space:pre-wrap}
+footer{max-width:1180px;margin:0 auto;padding:0 22px 30px;color:var(--muted);font-size:12px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}header{align-items:flex-start}}
+</style>
+</head>
+<body>
+<header><div><div class="brand">DROIDIOSXNU <span class="sub">/ RESEARCH</span></div><div class="sub">Host-side interface concept · build 0.0.2-prealpha</div></div><div class="pill">SIMULATION ONLY · NON-BOOTABLE</div></header>
+<main>
+<section class="intro"><h1>Boot Manager — GUI concept</h1><p>A desktop-style research dashboard for reviewing documented platform assumptions and illustrating a fictional startup plan. It does not interact with a phone, firmware, storage, bootloader, or kernel.</p></section>
+<div class="grid">
+<section class="panel"><h2>Illustrative workflow</h2><div id="stages" class="stages" aria-live="polite">
+<div class="stage active"><span class="dot"></span><div><strong>Research profile</strong><small>Load static project metadata</small></div></div>
+<div class="stage"><span class="dot"></span><div><strong>Compatibility review</strong><small>Display documented unknowns</small></div></div>
+<div class="stage"><span class="dot"></span><div><strong>Simulation summary</strong><small>Present a fictional result only</small></div></div>
+</div><div class="actions"><button id="run">Run GUI simulation</button><button id="reset" class="secondary">Reset view</button></div><div id="log" class="log" role="status">Ready. No hardware has been queried or changed.</div></section>
+<aside class="panel"><h2>Research target</h2>
+<div class="stat"><span class="muted">Device</span><span class="value">Moto G60</span></div>
+<div class="stat"><span class="muted">Model</span><span class="value">XT2135-2</span></div>
+<div class="stat"><span class="muted">Platform</span><span class="value">hanoip · research</span></div>
+<div class="stat"><span class="muted">XNU support</span><span class="value unknown">Unverified</span></div>
+<div class="stat"><span class="muted">Device drivers</span><span class="value unknown">Not implemented</span></div>
+<div class="stat"><span class="muted">Boot capability</span><span class="value">None</span></div>
+</aside>
+</div>
+<section class="panel" style="margin-top:18px"><h2>Safety and capability boundary</h2><div class="stat"><span>Phone connection</span><span class="value ok">Not required</span></div><div class="stat"><span>Device read/write operations</span><span class="value">Not present</span></div><div class="stat"><span>Firmware or partition handling</span><span class="value">Not present</span></div><div class="stat"><span>Executable boot code / installable image</span><span class="value">Not present</span></div><div class="notice"><strong>Important:</strong> This is a browser-based visual mockup and a fictional workflow. It is not a bootloader, installer, recovery environment, or device compatibility test. Do not treat its simulation output as evidence that the phone can run XNU.</div></section>
+</main>
+<footer>DroidiOSXNU is an independent research project. This page is static host-side UI code; its buttons only change text and visual status within this page.</footer>
+<script>
+const labels=["Research profile","Compatibility review","Simulation summary"];
+const details=["Static project metadata presented.","Known gaps and unresolved hardware details displayed.","Simulation complete: no device access, no kernel execution, no boot attempt."];
+const stages=[...document.querySelectorAll(".stage")], log=document.getElementById("log");
+let timer=null;
+function reset(){if(timer)clearInterval(timer);timer=null;stages.forEach((s,i)=>s.className="stage"+(i===0?" active":""));log.textContent="Ready. No hardware has been queried or changed.";}
+document.getElementById("reset").addEventListener("click",reset);
+document.getElementById("run").addEventListener("click",()=>{reset();let i=0;log.textContent="Starting local GUI-only simulation…";timer=setInterval(()=>{stages.forEach((s,n)=>s.className="stage"+(n<i?" done":n===i?" active":""));log.textContent+="\n["+String(i+1).padStart(2,"0")+"] "+labels[i]+": "+details[i];i++;if(i===stages.length){stages.forEach(s=>s.className="stage done");clearInterval(timer);timer=null;}},450);});
+</script>
+</body>
+</html>
