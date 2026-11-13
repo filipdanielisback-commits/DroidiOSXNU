@@ -28,4 +28,16 @@ python3 tools/boot_flow_simulator.py --fail-at kernel_plan
 
 It reports illustrative planning stages and can inject a fictional block to exercise status reporting. It does not load or execute a kernel, inspect hardware, access a bootloader, read/write device storage, or create a boot image. See [the simulator design](../docs/BOOT_FLOW_SIMULATOR.md).
 
+## Platform profile validator
+
+Validate the structured Moto G60 research profile:
+
+```sh
+python3 tools/validate_platform_profile.py
+python3 tools/validate_platform_profile.py --json
+python3 tools/validate_platform_profile.py devices/moto-g60/platform-profile.json
+```
+
+The validator checks required metadata, evidence labels, retained unknown hardware details, and explicit host-only/non-bootable scope. It reads a local JSON file and uses only the Python standard library. It does not detect the phone, query hardware, verify the truth of source claims, or resolve unknown board/peripheral identities. A valid result means the profile is structurally consistent—not that an XNU port or any device feature works.
+
 Tools must not download or redistribute proprietary iOS binaries, handle private signing keys, or attempt to bypass platform security controls. Document inputs, outputs, dependencies, and tests for each tool.
