@@ -52,4 +52,15 @@ python3 tools/validate_platform_profile.py devices/moto-g60/platform-profile.jso
 
 The validator checks required metadata, evidence labels, retained unknown hardware details, and explicit host-only/non-bootable scope. It reads a local JSON file and uses only the Python standard library. It does not detect the phone, query hardware, verify the truth of source claims, or resolve unknown board/peripheral identities. A valid result means the profile is structurally consistent—not that an XNU port or any device feature works.
 
+## Platform dependency inventory validator
+
+Validate the static Moto G60 subsystem inventory:
+
+```sh
+python3 tools/validate_platform_dependencies.py
+python3 tools/validate_platform_dependencies.py --json
+```
+
+The inventory at `devices/moto-g60/platform-dependencies.json` records each research area, evidence paths, confidence, priority, findings, and unresolved questions. The standard-library validator checks its structure, controlled status labels, unique identifiers, evidence references, and host-only scope declarations. It does not inspect hardware or establish compatibility; entries summarize the linked static research only.
+
 Tools must not download or redistribute proprietary iOS binaries, handle private signing keys, or attempt to bypass platform security controls. Document inputs, outputs, dependencies, and tests for each tool.
