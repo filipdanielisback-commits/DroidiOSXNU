@@ -18,7 +18,7 @@ The initial hardware research target is the **Motorola Moto G60 (XT2135-2)**. Dr
 
 The HakiOS project is a useful public reference for the *organization* of an XNU-on-Android research project. Its documentation separates a common kernel and tools layer from SoC and per-device layers, and it describes QEMU as a separate hardware-independent research target. DroidXNU records that architecture as a design reference only; it does not assume HakiOS code, drivers, or device support can be reused on the Moto G60.
 
-See [DroidXNU architecture alignment](docs/XNU_ARCHITECTURE_ALIGNMENT.md).
+See [DroidXNU architecture alignment](docs/XNU_ARCHITECTURE_ALIGNMENT.md) and the [XNU subsystem research map](docs/XNU_SUBSYSTEM_RESEARCH_MAP.md).
 
 ## Initial device
 
