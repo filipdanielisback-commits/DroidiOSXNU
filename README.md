@@ -33,6 +33,7 @@ Device support is not implied by appearing in this table. Each port needs its ow
 - `devices/` — per-device research and configuration notes.
 - `kernel/` — planned XNU integration notes and original patches.
 - `boot/` — boot-flow research and host-only simulation.
+- `gui/` — non-operational desktop GUI prototypes for research workflows.
 - `drivers/` — hardware-driver research and original implementations.
 - `tools/` — small, auditable development utilities.
 - `ipsw/` — documentation for inspecting user-supplied firmware packages.
@@ -52,7 +53,7 @@ The initial milestone is an independently buildable research environment and a d
 - Use firmware references such as [IPSW.me](https://ipsw.me/) as a catalog only. Users are responsible for obtaining firmware through legitimate channels and complying with applicable terms.
 - This project is independent and is not affiliated with or endorsed by Apple, Motorola, Xiaomi, Google, or Qualcomm.
 
-See [Legal and firmware policy](docs/LEGAL.md), [Architecture](docs/ARCHITECTURE.md), and [Roadmap](docs/ROADMAP.md).
+See [Legal and firmware policy](docs/LEGAL.md), [Architecture](docs/ARCHITECTURE.md), [Boot Manager GUI prototype](docs/BOOT_MANAGER_GUI.md), and [Roadmap](docs/ROADMAP.md).
 
 ## Contributing
 
