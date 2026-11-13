@@ -1,0 +1,54 @@
+{
+  "profile_schema_version": 1,
+  "project": "DroidiOSXNU",
+  "device": {
+    "name": "Motorola Moto G60",
+    "model": "XT2135-2",
+    "codename": "hanoip",
+    "architecture": "arm64",
+    "ram_gib": 6,
+    "storage_gib": 128,
+    "software_build": "S2RIS32.32-20-9-9-2-3",
+    "kernel_source_release": "MMI-S2RIS32.32-20-9-9-2-3",
+    "soc_platform_family": "Qualcomm SDM Magpie / SM6150"
+  },
+  "evidence": [
+    {
+      "field": "device.model",
+      "basis": "Owner-reported model; Motorola source publication identifies the matching XT2135-2 firmware package.",
+      "confidence": "source_correlated"
+    },
+    {
+      "field": "device.ram_gib",
+      "basis": "Owner-reported device configuration.",
+      "confidence": "owner_reported"
+    },
+    {
+      "field": "device.storage_gib",
+      "basis": "Owner-reported device configuration; Motorola product material also describes 128 GB built-in storage.",
+      "confidence": "source_correlated"
+    },
+    {
+      "field": "device.software_build",
+      "basis": "Owner-reported Android build, matched to the Motorola kernel source release.",
+      "confidence": "source_correlated"
+    },
+    {
+      "field": "device.soc_platform_family",
+      "basis": "Platform identifiers in the matching Motorola kernel source and device-tree material.",
+      "confidence": "exact_build_source"
+    }
+  ],
+  "unresolved": [
+    "physical_board_revision",
+    "physical_board_id",
+    "touchscreen_controller_revision",
+    "wireless_combo_chip_identity"
+  ],
+  "scope": {
+    "static_research_only": true,
+    "hardware_accessed": false,
+    "device_storage_modified": false,
+    "bootable": false
+  }
+}
