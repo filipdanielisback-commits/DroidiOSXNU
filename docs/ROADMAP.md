@@ -23,8 +23,8 @@ All milestones are goals. None should be interpreted as completed until evidence
 
 ## Milestone 2 — host-side research
 
-- [ ] Pin a public XNU source revision and record its license.
-- [ ] Document the required toolchain and supported build host.
+- [x] Pin a public XNU source revision and record its license: [XNU source baseline](XNU_SOURCE_BASELINE.md).
+- [x] Document upstream toolchain prerequisites and the documented macOS build-host context: [XNU source baseline](XNU_SOURCE_BASELINE.md). This is not a validated DroidiOSXNU build environment.
 - [ ] Create reproducible source-fetch and integrity-check scripts.
 - [ ] Establish tests that run without a phone.
 - [ ] Document known gaps between public XNU source and iOS userspace.
