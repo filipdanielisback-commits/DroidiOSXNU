@@ -72,8 +72,11 @@ Only after the initial Moto G60 research is well documented should additional de
 - [x] Add a host-only fetcher for the exact pinned Apple XNU tag and commit.
 - [x] Add synthetic tests for the fetcher's pin and destination safeguards.
 - [x] Add a source-backed ARM64 foundation review map.
-- [ ] Run the fetcher in the local development checkout and verify the detached HEAD.
-- [ ] Inspect the exact pinned ARM64 entry, boot-argument, VM, exception, CPU, interrupt, and timer source paths.
+- [x] Run the fetcher in the local development checkout and verify the detached HEAD.
+- [x] Verify the local XNU checkout is clean after fetching.
+- [x] Inspect the pinned ARM64 startup, VM initialization, exception-handling, and board-configuration source areas.
+- [ ] Complete the detailed entry/boot-argument contract review.
+- [ ] Map CPU features/topology, interrupt-controller, and timer/timebase dependencies from the pinned source.
 - [ ] Record the target boot-handoff and memory contracts as confirmed, unresolved, or unknown.
 - [ ] Only then design a minimal project-owned platform abstraction with tests.
 
