@@ -44,8 +44,10 @@ All milestones are goals. A milestone is complete only when its evidence is link
 - [x] Review HakiOS's public high-level architecture and repository separation.
 - [x] Record the common-kernel / SoC / device / host-test separation as a reference model.
 - [x] State explicitly that HakiOS code and device support are not assumed reusable on the Moto G60.
-- [ ] Design a DroidXNU source-tree organization for common, SoC, and device research without importing third-party code.
+- [x] Design a DroidXNU source-tree organization for common, SoC, and device research without importing third-party code.
 - [ ] Document a provenance and license review checklist for any future external source consideration.
+
+See [XNU ARM64 source architecture audit](XNU_ARM64_SOURCE_AUDIT.md) for the pinned source-tree responsibility map and current compatibility boundaries.
 
 See [XNU architecture alignment](XNU_ARCHITECTURE_ALIGNMENT.md).
 
