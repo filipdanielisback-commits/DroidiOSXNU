@@ -66,3 +66,15 @@ Track display, touchscreen, storage, USB, Wi-Fi, Bluetooth, audio, GPU, sensors,
 ## Milestone 6 — future platform assessments
 
 Only after the initial Moto G60 research is well documented should additional devices be assessed independently. A shared SoC does not guarantee identical board wiring, firmware, display, touch, or peripheral support.
+
+## Milestone 7 — XNU ARM64 source integration and platform foundations
+
+- [x] Add a host-only fetcher for the exact pinned Apple XNU tag and commit.
+- [x] Add synthetic tests for the fetcher's pin and destination safeguards.
+- [x] Add a source-backed ARM64 foundation review map.
+- [ ] Run the fetcher in the local development checkout and verify the detached HEAD.
+- [ ] Inspect the exact pinned ARM64 entry, boot-argument, VM, exception, CPU, interrupt, and timer source paths.
+- [ ] Record the target boot-handoff and memory contracts as confirmed, unresolved, or unknown.
+- [ ] Only then design a minimal project-owned platform abstraction with tests.
+
+See [XNU ARM64 source integration and platform foundations](XNU_ARM64_PLATFORM_FOUNDATIONS.md). No Moto G60 XNU platform implementation or hardware validation is claimed.
