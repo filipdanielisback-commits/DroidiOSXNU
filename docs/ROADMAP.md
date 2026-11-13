@@ -53,6 +53,11 @@ See [XNU architecture alignment](XNU_ARCHITECTURE_ALIGNMENT.md).
 
 ## Milestone 5 — feature research
 
+- [x] Map Mach, BSD, IOKit, ARM64, and platform-specific source areas in the pinned XNU tree.
+- [x] Record how the source areas relate to Moto G60 research without claiming target support.
+
+See [XNU subsystem research map](XNU_SUBSYSTEM_RESEARCH_MAP.md).
+
 Track display, touchscreen, storage, USB, Wi-Fi, Bluetooth, audio, GPU, sensors, cameras, and power management separately. A feature is not "working" until there is a clearly scoped, reproducible test report. Static source references alone are not implementation evidence.
 
 ## Milestone 6 — future platform assessments
