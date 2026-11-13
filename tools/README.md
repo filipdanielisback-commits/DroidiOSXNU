@@ -28,6 +28,18 @@ python3 tools/boot_flow_simulator.py --fail-at kernel_plan
 
 It reports illustrative planning stages and can inject a fictional block to exercise status reporting. It does not load or execute a kernel, inspect hardware, access a bootloader, read/write device storage, or create a boot image. See [the simulator design](../docs/BOOT_FLOW_SIMULATOR.md).
 
+## XNU source pin verifier
+
+Check the pinned public XNU tag against GitHub's public Git database:
+
+```sh
+python3 tools/verify_xnu_pin.py
+python3 tools/verify_xnu_pin.py --json
+python3 tools/verify_xnu_pin.py --offline
+```
+
+The default mode compares the annotated tag object and peeled commit with `kernel/xnu-source-pin.json` using two read-only GitHub API requests. Offline mode validates only the local manifest. It does not download source archives, clone or build XNU, write outside normal process output, access a phone, or create a bootable artifact. A successful online check confirms that the public tag currently resolves to the pinned object and commit; it does not authenticate the unsigned tag or prove source publisher identity.
+
 ## Platform profile validator
 
 Validate the structured Moto G60 research profile:
